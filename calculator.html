@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator - Professional Video Editing and Consulting</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="subpage-header">
+        <div class="header-container">
+            <a href="index-en.html" class="back-link">
+                ← Back to homepage
+            </a>
+            <h1>Price Calculator</h1>
+            <a href="kalkulator.html" class="lang-switch">🇵🇱 Wersja polska</a>
+        </div>
+    </section>
+
+    <section class="calculator-section">
+        <div class="calculator-container">
+            <div class="calculator-progress">
+                <div class="progress-bar">
+                    <div class="progress-indicator"></div>
+                </div>
+                <div class="progress-label">Step <span id="current-step">1</span> of 6</div>
+            </div>
+
+            <div class="calculator-content">
+                <div class="calculator-steps">
+                    <!-- Step 1: Currency -->
+                    <div class="calculator-step" data-step="1">
+                        <h3>Select currency</h3>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="currency" value="PLN" checked>
+                                <span class="radio-label">🇵🇱 PLN</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="currency" value="USD">
+                                <span class="radio-label">🇺🇸 USD</span>
+                            </label>
+                        </div>
+                        <p class="helper-text">Exchange rate: 1 USD = 3.80 PLN</p>
+                        <div class="step-navigation">
+                            <button class="next-step-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Collaboration Type -->
+                    <div class="calculator-step" data-step="2">
+                        <h3>How often will you work with me?</h3>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="collaboration" value="onetime" checked>
+                                <span class="radio-label">One-time production</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="collaboration" value="multiple">
+                                <span class="radio-label">Project of 2–9 productions <span class="discount">-10%</span></span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="collaboration" value="regular">
+                                <span class="radio-label">Regular collaboration 10+ productions <span class="discount">-20%</span></span>
+                            </label>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="prev-step-btn">Back</button>
+                            <button class="next-step-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Video Formats -->
+                    <div class="calculator-step" data-step="3">
+                        <h3>What do you want to create?</h3>
+                        <p class="helper-text">You can select multiple formats at once.</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="quick_reel">
+                                <span class="checkbox-label">Quick Reel (up to 1 min)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="standard_reel">
+                                <span class="checkbox-label">Standard Reel (1–3 min)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="short_film">
+                                <span class="checkbox-label">Short Film (4–7 min)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="full_film">
+                                <span class="checkbox-label">Full-Length Film (8–12 min)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="extended_film">
+                                <span class="checkbox-label">Extended Film (13–18 min)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="format" value="custom" id="custom-format-checkbox">
+                                <span class="checkbox-label">Custom – enter length and number of videos</span>
+                            </label>
+                        </div>
+                        
+                        <div class="custom-format-fields" style="display: none;">
+                            <div class="input-field">
+                                <label for="custom-quantity">Number of videos:</label>
+                                <input type="number" id="custom-quantity" min="1" max="100" value="1">
+                            </div>
+                            <div class="input-field">
+                                <label for="custom-length">Video length (minutes):</label>
+                                <input type="number" id="custom-length" min="1" max="120" value="5">
+                            </div>
+                        </div>
+                        
+                        <div class="error-message format-error" style="display: none;">
+                            Please select at least one video format.
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button class="prev-step-btn">Back</button>
+                            <button class="next-step-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Complexity Level -->
+                    <div class="calculator-step" data-step="4">
+                        <h3>Select editing complexity level</h3>
+                        <div class="complexity-options">
+                            <label class="complexity-option">
+                                <input type="radio" name="complexity" value="basic" checked>
+                                <div class="complexity-content">
+                                    <div class="complexity-header">
+                                        <div class="complexity-number">1</div>
+                                        <div class="complexity-title">Basic</div>
+                                    </div>
+                                    <div class="complexity-features">
+                                        <ul>
+                                            <li>Cuts and trimming</li>
+                                            <li>Basic sound correction</li>
+                                            <li>Basic color correction</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="complexity-option">
+                                <input type="radio" name="complexity" value="advanced">
+                                <div class="complexity-content">
+                                    <div class="complexity-header">
+                                        <div class="complexity-number">2</div>
+                                        <div class="complexity-title">Advanced</div>
+                                    </div>
+                                    <div class="complexity-features">
+                                        <ul>
+                                            <li>Everything from Basic</li>
+                                            <li>Stock footage</li>
+                                            <li>Dynamic transitions</li>
+                                            <li>Precise color grading</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="complexity-option">
+                                <input type="radio" name="complexity" value="premium">
+                                <div class="complexity-content">
+                                    <div class="complexity-header">
+                                        <div class="complexity-number">3</div>
+                                        <div class="complexity-title">Premium</div>
+                                    </div>
+                                    <div class="complexity-features">
+                                        <ul>
+                                            <li>Everything from Advanced</li>
+                                            <li>Basic graphics animations</li>
+                                            <li>Advanced VFX and audio effects</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button class="prev-step-btn">Back</button>
+                            <button class="next-step-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Additional Services -->
+                    <div class="calculator-step" data-step="5">
+                        <h3>Add additional services</h3>
+                        <p class="helper-text">Select all that interest you</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="additional" value="youtube">
+                                <span class="checkbox-label">
+                                    <div class="service-title">YouTube Management</div>
+                                    <div class="service-desc">Publication, scheduling, optimization</div>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="additional" value="consulting">
+                                <span class="checkbox-label">
+                                    <div class="service-title">Video Consulting (monthly)</div>
+                                    <div class="service-desc">Planning assistance, trend analysis</div>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="additional" value="thumbnails">
+                                <span class="checkbox-label">
+                                    <div class="service-title">Thumbnails</div>
+                                    <div class="service-desc">Designing eye-catching graphics</div>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button class="prev-step-btn">Back</button>
+                            <button class="next-step-btn">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Summary -->
+                    <div class="calculator-step" data-step="6">
+                        <h3>Your quote summary</h3>
+                        
+                        <div class="summary-table">
+                            <div class="summary-row">
+                                <div class="summary-label">Currency:</div>
+                                <div class="summary-value" id="summary-currency">PLN</div>
+                            </div>
+                            <div class="summary-row">
+                                <div class="summary-label">Collaboration type:</div>
+                                <div class="summary-value" id="summary-collaboration">One-time production</div>
+                            </div>
+                            <div class="summary-row">
+                                <div class="summary-label">Format(s):</div>
+                                <div class="summary-value" id="summary-format">-</div>
+                            </div>
+                            <div class="summary-row">
+                                <div class="summary-label">Complexity level:</div>
+                                <div class="summary-value" id="summary-complexity">Basic</div>
+                            </div>
+                            <div class="summary-row">
+                                <div class="summary-label">Additional services:</div>
+                                <div class="summary-value" id="summary-services">-</div>
+                            </div>
+                        </div>
+                        
+                        <div class="total-cost-container">
+                            <div class="loading-indicator">
+                                <div class="spinner"></div>
+                            </div>
+                            
+                            <div class="total-cost-label">Total cost:</div>
+                            <div class="total-cost-value" id="total-cost">0 PLN</div>
+                            
+                            <div class="cost-range-info">Estimated range: ± 20% from calculated value</div>
+                            
+                            <div class="cost-range-visual">
+                                <div class="range-indicator">
+                                    <div class="min-value" id="min-cost-value">0 PLN</div>
+                                    <div class="current-value" id="current-cost-value">0 PLN</div>
+                                    <div class="max-value" id="max-cost-value">0 PLN</div>
+                                </div>
+                                <div class="range-bar">
+                                    <div class="range-bar-min"></div>
+                                    <div class="range-bar-current"></div>
+                                    <div class="range-bar-max"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-actions">
+                            <button class="action-button download-pdf">
+                                <div class="button-icon">📄</div>
+                                <div class="button-text">Download PDF Quote</div>
+                            </button>
+                            
+                            <button class="action-button contact-me">
+                                <div class="button-icon">💬</div>
+                                <div class="button-text">Contact Me</div>
+                            </button>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button class="prev-step-btn">Back</button>
+                            <button class="recalculate-btn">Recalculate</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-summary-desktop">
+                    <h4>Your Quote</h4>
+                    <div class="summary-content">
+                        <div class="summary-item">
+                            <div class="item-label">Currency:</div>
+                            <div class="item-value" id="sidebar-currency">PLN</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="item-label">Collaboration:</div>
+                            <div class="item-value" id="sidebar-collaboration">One-time</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="item-label">Format:</div>
+                            <div class="item-value" id="sidebar-format">-</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="item-label">Level:</div>
+                            <div class="item-value" id="sidebar-complexity">Basic</div>
+                        </div>
+                    </div>
+                    <div class="summary-total-container">
+                        <div class="total-amount" id="sidebar-total">0 PLN</div>
+                    </div>
+                </div>
+                
+                <div class="calculator-summary-mobile">
+                    <div class="summary-total">0 PLN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="calculator.js"></script>
+</body>
+</html> 

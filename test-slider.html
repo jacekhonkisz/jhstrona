@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Slider Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .image-compare {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(155, 48, 181, 0.2);
+            margin: 0 auto;
+            user-select: none;
+            cursor: grab;
+        }
+
+        .image-compare:active {
+            cursor: grabbing;
+        }
+
+        .after-image,
+        .before-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .after-image {
+            z-index: 1;
+        }
+
+        .slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            will-change: width;
+        }
+
+        .before-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            z-index: 3;
+            pointer-events: auto;
+            cursor: ew-resize;
+            will-change: left;
+        }
+
+        .slider-line {
+            flex: 1;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(155, 48, 181, 0.6);
+        }
+
+        .slider-button {
+            width: 42px;
+            height: 42px;
+            background: #9b30b5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(155, 48, 181, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s ease;
+            cursor: ew-resize;
+        }
+
+        .slider-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(155, 48, 181, 0.7);
+        }
+
+        .slider-button svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+        }
+
+        .comparison-labels {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .before-label, .after-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(155, 48, 181, 0.2);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .before-label {
+            margin-right: auto;
+        }
+
+        .after-label {
+            margin-left: auto;
+        }
+        
+        #debug {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Comparison Slider Test</h1>
+        
+        <div class="image-compare">
+            <img src="after.png" alt="After" class="after-image">
+            <div class="slider-overlay">
+                <img src="before.png" alt="Before" class="before-image">
+            </div>
+            <div class="slider-handle">
+                <div class="slider-line"></div>
+                <div class="slider-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </div>
+                <div class="slider-line"></div>
+            </div>
+            <div class="comparison-labels">
+                <span class="before-label">Przed</span>
+                <span class="after-label">Po</span>
+            </div>
+        </div>
+        
+        <div id="debug">
+            <p><strong>Debug Info:</strong></p>
+            <p id="debug-info">Touch/Click and move to test the slider.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.image-compare');
+            const debugInfo = document.getElementById('debug-info');
+            
+            function log(message) {
+                debugInfo.innerHTML += `<br>${message}`;
+            }
+            
+            sliders.forEach(slider => {
+                const sliderOverlay = slider.querySelector('.slider-overlay');
+                const sliderHandle = slider.querySelector('.slider-handle');
+                const beforeImage = slider.querySelector('.before-image');
+                const afterImage = slider.querySelector('.after-image');
+                
+                if (!sliderOverlay || !sliderHandle || !beforeImage || !afterImage) {
+                    log('Required slider elements not found');
+                    return;
+                }
+                
+                let isResizing = false;
+                
+                // Initialize slider position
+                const initSlider = () => {
+                    updateSliderPosition(50);
+                    slider.classList.add('initialized');
+                    log('Slider initialized');
+                };
+                
+                // Wait for images to load before initializing
+                Promise.all([
+                    beforeImage.complete ? Promise.resolve() : new Promise(resolve => beforeImage.onload = resolve),
+                    afterImage.complete ? Promise.resolve() : new Promise(resolve => afterImage.onload = resolve)
+                ]).then(initSlider);
+                
+                function updateSliderPosition(position) {
+                    position = Math.min(Math.max(position, 0), 100);
+                    sliderOverlay.style.width = `${position}%`;
+                    sliderHandle.style.left = `${position}%`;
+                    log(`Position updated: ${position.toFixed(2)}%`);
+                }
+                
+                function getPositionFromEvent(e) {
+                    const rect = slider.getBoundingClientRect();
+                    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    const x = clientX - rect.left;
+                    return (x / rect.width) * 100;
+                }
+                
+                function startSliding(e) {
+                    log(`Start sliding: ${e.type}`);
+                    if (e.type.includes('touch')) {
+                        e.preventDefault(); // Prevent scrolling on touch start
+                    }
+                    isResizing = true;
+                    slider.classList.add('active');
+                    
+                    // Immediately update position
+                    updateSliderPosition(getPositionFromEvent(e));
+                }
+                
+                function stopSliding() {
+                    log('Stop sliding');
+                    isResizing = false;
+                    slider.classList.remove('active');
+                }
+                
+                function slide(e) {
+                    if (!isResizing) return;
+                    
+                    log(`Sliding: ${e.type}`);
+                    e.preventDefault(); // Prevent scrolling and other default behaviors
+                    e.stopPropagation(); // Stop event bubbling
+                    
+                    updateSliderPosition(getPositionFromEvent(e));
+                }
+                
+                // Mouse events
+                slider.addEventListener('mousedown', startSliding);
+                document.addEventListener('mousemove', slide);
+                document.addEventListener('mouseup', stopSliding);
+                
+                // Touch events
+                slider.addEventListener('touchstart', startSliding, { passive: false });
+                document.addEventListener('touchmove', slide, { passive: false });
+                document.addEventListener('touchend', stopSliding);
+                document.addEventListener('touchcancel', stopSliding);
+                
+                // Prevent context menu on long press
+                slider.addEventListener('contextmenu', e => e.preventDefault());
+                
+                log('Event listeners added');
+            });
+        });
+    </script>
+</body>
+</html> 

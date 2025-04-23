@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesjonalny montaż wideo i konsulting YouTube</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="logojh.png" alt="JH Video Edits" class="navbar-logo">
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-nav">
+            <div class="navbar-links">
+                <a href="kalkulator.html" class="nav-link">Kalkulator</a>
+                <a href="konsultacja.html" class="nav-link">Konsultacja</a>
+                <a href="mailto:jac.honkisz@gmail.com" class="nav-contact">
+                    <i class="fas fa-envelope"></i>
+                    jac.honkisz@gmail.com
+                </a>
+            </div>
+            <div class="navbar-langs">
+                <a href="index.html" class="lang-switch active-lang">🇵🇱 Polski</a>
+                <a href="index-en.html" class="lang-switch">🇬🇧 English</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop id="hero-video">
+                <source src="hero-background.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Profesjonalny montaż wideo i strategiczny konsulting YouTube</h1>
+                <p>Zamień swoje nagrania w angażujące filmy, które przyciągają widzów i rozwijają Twój kanał. Oszczędź czas, zwiększ jakość i skup się na tym, co robisz najlepiej. Resztą zajmę się ja.</p>
+                <div class="hero-buttons">
+                    <a href="kalkulator.html" class="cta-button primary calculator-button">
+                        <div class="button-content">
+                            <span class="button-main">Skorzystaj z interaktywnego kalkulatora</span>
+                            <span class="button-subtext">Sprawdź potencjalne koszta jeszcze przed konsultacją</span>
+                        </div>
+                        <div class="button-icon">💰</div>
+                    </a>
+                    <a href="konsultacja.html" class="cta-button secondary consultation-button">
+                        <div class="button-content">
+                            <span class="button-main">Odpowiedz na kilka pytań przed konsultacją</span>
+                            <span class="button-subtext">Odpowiedzi na nie pomogą lepiej zrozumieć Twoje potrzeby</span>
+                        </div>
+                        <div class="button-icon">📋</div>
+                    </a>
+                </div>
+            </div>
+            <div class="calendly-container" id="calendly-container">
+                <div class="calendly-header">
+                    <h2>Umów Darmową Konsultację</h2>
+                    <p>Wybierz dogodny termin, a omówimy Twoje potrzeby i możliwości współpracy.</p>
+                </div>
+                <div class="calendly-inline-widget" 
+                    data-url="https://calendly.com/jac-honkisz/video-editing-consulting?hide_gdpr_banner=1&background_color=0d0d16&text_color=ffffff&primary_color=9b30b5&secondary_color=1a1a26&hide_event_type_details=1" 
+                    style="min-width:320px;height:600px;background:rgba(13, 13, 22, 0.98);">
+                </div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <div class="cookie-settings-dark">
+                    <a href="#" class="cookie-settings-link">Cookie settings</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">Jak mogę Ci pomóc?</h2>
+        <div class="swiper services-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <div class="card-icon">🎬</div>
+                        <h3>Montaż wideo</h3>
+                        <p>Wyślij mi surowy materiał, a ja zajmę się resztą – profesjonalnie zmontuję film, dodam efekty wizualne, dźwięk i przejścia.</p>
+                        <ul class="benefits-list">
+                            <li>Filmy, które wyróżniają się jakością i przyciągają uwagę widzów.</li>
+                            <li>Oszczędność czasu – średnio 15 godzin miesięcznie na montażu.</li>
+                            <li>Gwarancję jednej rundy poprawek gratis – zero ryzyka i pełna satysfakcja.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Zarządzanie kanałem YouTube</h3>
+                        <p>Masz problem z regularnością lub widocznością filmów? Zaplanuję publikacje, zoptymalizuję tytuły oraz miniaturki.</p>
+                        <ul class="benefits-list">
+                            <li>Praktyczny harmonogram publikacji dopasowany do Twojej widowni.</li>
+                            <li>Miniaturki i tytuły zwiększające CTR (średni wzrost: +34%).</li>
+                            <li>Analizę wyników i rekomendacje na podstawie danych – bez zgadywania.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Konsulting i strategia</h3>
+                        <p>Nie wiesz, jak skutecznie rozwijać kanał na YouTube? Odpowiem na wszystkie Twoje pytania i stworzę dopasowaną strategię.</p>
+                        <ul class="benefits-list">
+                            <li>Indywidualną strategię rozwoju kanału krok po kroku.</li>
+                            <li>Konkretne wskazówki dotyczące algorytmu YouTube i trendów w Twojej niszy.</li>
+                            <li>Wsparcie w budowaniu spójnego brandingu wizualnego i treściowego.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <div class="card-icon">🎥</div>
+                        <h3>Wsparcie produkcyjne</h3>
+                        <p>Produkcja dobrych materiałów sprawia Ci trudność? Pomogę w planowaniu nagrań i przygotowaniu scenariuszy.</p>
+                        <ul class="benefits-list">
+                            <li>Profesjonalne porady dotyczące kadru, światła i dźwięku – nawet zdalnie.</li>
+                            <li>Gotowe scenariusze i pomysły na filmy dopasowane do Twojej grupy docelowej.</li>
+                            <li>Wsparcie techniczne w nagraniach – od wyboru sprzętu po ustawienia kamery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section class="target-audience-section">
+        <div class="segment-switcher">
+            <button class="segment-button active" data-segment="creators">Dla Twórców</button>
+            <button class="segment-button" data-segment="business">Dla przedsiębiorców i firm</button>
+        </div>
+
+        <div class="audience-segment active" id="creators-segment">
+            <div class="cards-container">
+                <div class="audience-card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Montaż zabiera Ci za dużo czasu?</h3>
+                    <p>Przejmę całość pracy montażowej, byś mógł skoncentrować się na tworzeniu treści i kontakcie z widzami.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="card-icon">📅</div>
+                    <h3>Cieżko Ci publikować regularnie?</h3>
+                    <p>Stworzę dla Ciebie praktyczny harmonogram pracy oraz zoptymalizuję proces tworzenia treści, dzięki czemu unikniesz wypalenia.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="card-icon">🎬</div>
+                    <h3>Chcesz wyższej jakości filmów?</h3>
+                    <p>Osobiście zadbam o to, by każdy Twój film realizował Twoją wizję w 100% i skutecznie przyciągał uwagę widzów.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="audience-segment" id="business-segment">
+            <div class="cards-container">
+                <div class="audience-card">
+                    <div class="card-icon">💼</div>
+                    <h3>Marketing wideo zajmuje za dużo wysiłku?</h3>
+                    <p>Zajmę się montażem i planowaniem filmów, byś mógł swobodnie rozwijać firmę bez nadmiernego obciążenia obowiązkami produkcyjnymi.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Potrzebujesz strategicznej przewagi?</h3>
+                    <p>Doradzę Ci w kwestii brandingu i strategii – każdy film będzie zgodny z celami Twojej firmy.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="card-icon">✨</div>
+                    <h3>Amatorskie filmy obniżają Twoją wiarygodność?</h3>
+                    <p>Stworzę profesjonalne materiały wideo, które zwiększą Twój prestiż, przyciągną nowych klientów i pokażą Twoją firmę w najlepszym świetle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cooperation-section">
+        <h2 class="section-title">Jak wygląda nasza współpraca?</h2>
+        <div class="timeline-container">
+            <div class="timeline-item" data-step="1">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <span>💬</span>
+                    </div>
+                    <div class="timeline-step">Krok 1</div>
+                    <h3>Rozmowa wstępna</h3>
+                    <p>Umów darmową konsultację i opowiedz mi o swoich wyzwaniach. Wspólnie określimy cele oraz ustalimy optymalną strategię działania.</p>
+                </div>
+                <div class="timeline-connector"></div>
+            </div>
+
+            <div class="timeline-item" data-step="2">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <span>📋</span>
+                    </div>
+                    <div class="timeline-step">Krok 2</div>
+                    <h3>Indywidualna strategia</h3>
+                    <p>Przygotuję konkretny plan dopasowany do Twoich potrzeb – od stylu montażu po harmonogram publikacji.</p>
+                </div>
+                <div class="timeline-connector"></div>
+            </div>
+
+            <div class="timeline-item" data-step="3">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <span>🎬</span>
+                    </div>
+                    <div class="timeline-step">Krok 3</div>
+                    <h3>Montaż i współpraca</h3>
+                    <p>Wyślij materiał – stworzę angażujące filmy zgodne z Twoją wizją. Otrzymujesz jedną pełną rundę poprawek gratis.</p>
+                </div>
+                <div class="timeline-connector"></div>
+            </div>
+
+            <div class="timeline-item" data-step="4">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <span>🚀</span>
+                    </div>
+                    <div class="timeline-step">Krok 4</div>
+                    <h3>Gotowy film i dalsze wsparcie</h3>
+                    <p>Kiedy film spełnia Twoje oczekiwania, otrzymujesz gotowy materiał do publikacji. Jeśli potrzebujesz dodatkowej pomocy – jestem tu dla Ciebie długoterminowo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="case-study-container">
+        <!-- Case Study Text Section (Full Width) -->
+        <div class="case-study-text">
+            <!-- [1] HEADLINE SECTION -->
+            <div class="case-study-headline">
+                <span class="case-study-label">Case study</span>
+                <h1>Jak Miłosz odzyskał kanał i zyskał +175% subskrybentów w mniej niż rok</h1>
+                <p class="subheadline">Case study z pracy 1:1 z twórcą z branży finansowej</p>
+            </div>
+            
+            <div class="case-study-content">
+                <!-- [2] PROBLEM BLOCK -->
+                <div class="study-section problem">
+                    <div class="section-icon">⚠️</div>
+                    <h2>Problem</h2>
+                    <p>Miłosz miał przerwę w publikacjach, a jego kanał zatrzymał się na poziomie 2 000 subskrypcji. Brakowało mu wiedzy o montażu oraz czasu na tworzenie treści wysokiej jakości.</p>
+                </div>
+
+                <!-- [3] CO ZROBIŁEM - ACTION STEPS -->
+                <div class="study-section solution">
+                    <h2>Co zrobiłem</h2>
+                    <div class="action-steps">
+                        <div class="action-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Poprawa jakości nagrań</h3>
+                                <p>Doradziłem w zakresie kadru, światła i dźwięku – zdalnie.</p>
+                            </div>
+                        </div>
+                        <div class="action-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Montaż i miniaturki</h3>
+                                <p>Zająłem się cyklicznym montażem i grafiką.</p>
+                            </div>
+                        </div>
+                        <div class="action-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Rytm publikacji</h3>
+                                <p>Cotygodniowy rytm – nowe odcinki co czwartek.</p>
+                            </div>
+                        </div>
+                        <div class="action-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Dzień nagraniowy</h3>
+                                <p>Pojechałem osobiście – nagraliśmy kilka odcinków w lepszej jakości.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [4] REZULTAT - RESULTS -->
+                <div class="study-section results">
+                    <h2>Rezultat</h2>
+                    <div class="main-result">
+                        <div class="result-stat highlight">+175%</div>
+                        <p>wzrost subskrypcji</p>
+                    </div>
+                    <ul class="results-list">
+                        <li>
+                            <div class="result-icon">🔥</div>
+                            <p>Kanał urósł z 2 000 do ponad 5 500 subów w rok</p>
+                        </li>
+                        <li>
+                            <div class="result-icon">🏆</div>
+                            <p>Najwięcej reakcji i komentarzy w historii kanału</p>
+                        </li>
+                        <li>
+                            <div class="result-icon">🙌</div>
+                            <p>Miłosz postrzegany jako ekspert w swojej branży</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Image Comparison Below Results -->
+                <div class="study-section comparison-container">
+                    <h2>Porównanie</h2>
+                    <p class="comparison-caption">Przeciągnij suwak, aby zobaczyć różnicę przed i po rozpoczęciu współpracy ze mną</p>
+                    <div class="comparison-section">
+                        <div class="image-compare">
+                            <img src="after.png" alt="Po współpracy" class="after-image">
+                            <div class="slider-overlay">
+                                <img src="before.png" alt="Przed współpracą" class="before-image">
+                            </div>
+                            <div class="slider-handle">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                                    </svg>
+                                </div>
+                                <div class="slider-line"></div>
+                            </div>
+                            <div class="comparison-labels">
+                                <span class="before-label">Przed</span>
+                                <span class="after-label">Po</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [5] CTA - CALL TO ACTION -->
+                <div class="case-study-cta">
+                    <div class="cta-text">
+                        <h3>Chcesz osiągnąć podobny efekt ze swoim kanałem?</h3>
+                        <p>Porozmawiajmy o Twoim pomyśle.</p>
+                    </div>
+                    <a href="#calendly-container" class="cta-button primary">
+                        <div class="button-content">
+                            <span class="button-main">Umów bezpłatną konsultację</span>
+                        </div>
+                        <div class="button-icon">→</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Opinie klientów</h2>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        "
+                    </div>
+                    <p class="testimonial-text">Współpracując z Jackiem udało mi się przywrócić kanał do życia i <span class="highlight">powiększyć liczbę subskrybentów x2</span>.</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Miłosz Grudzień</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        "
+                    </div>
+                    <p class="testimonial-text">Produkcja wideo Jacka <span class="highlight">wsparła nasze działania sprzedażowe</span> – polecamy jego usługi naszym klientom.</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">BizWiz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <div class="cta-text">
+                <h2>Gotowy, by rozwiązać swoje wyzwania związane z wideo?</h2>
+                <p>Bez zbędnych formalności – powiedz mi, czego potrzebujesz! Szybko zamienię Twoje materiały w angażujące treści.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="kalkulator.html" class="cta-button primary">
+                    <div class="button-content">
+                        <span class="button-main">Szybka wycena</span>
+                        <span class="button-subtext">Użyj kalkulatora kosztów online</span>
+                    </div>
+                    <div class="button-icon">💰</div>
+                </a>
+                <a href="#calendly-container" class="cta-button secondary">
+                    <div class="button-content">
+                        <span class="button-main">Umów bezpłatną konsultację</span>
+                        <span class="button-subtext">Porozmawiajmy o Twoim projekcie</span>
+                    </div>
+                    <div class="button-icon">💬</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: jac.honkisz@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Usługi</h3>
+                    <ul>
+                        <li><a href="kalkulator.html">Kalkulator kosztów</a></li>
+                        <li><a href="konsultacja.html">Formularz konsultacji</a></li>
+                        <li><a href="#consultation">Umów spotkanie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Język</h3>
+                    <ul>
+                        <li><a href="index.html" class="active-lang">🇵🇱 Polski</a></li>
+                        <li><a href="index-en.html">🇬🇧 English</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 JHvideoedits. Wszelkie prawa zastrzeżone.</p>
+                <div class="footer-links">
+                    <a href="#">Polityka Prywatności</a>
+                    <a href="#">Regulamin</a>
+                </div>
+                <div class="footer-logo">
+                    <img src="logojh.png" alt="JH Video Edits" class="footer-logo-img">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
